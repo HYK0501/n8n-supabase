@@ -17,7 +17,7 @@ services:
       - GENERIC_TIMEZONE=Asia/Taipei
       - NODE_ENV=production
     volumes:
-      - C:/Users/Barry_Kao/n8n:/home/node/.n8n
+      - C:/Users/User/n8n-supabase:/home/node/.n8n
     networks:
       - supabase-network
     depends_on:
