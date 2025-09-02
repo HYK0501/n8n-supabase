@@ -19,6 +19,7 @@ services:
       - GENERIC_TIMEZONE=Asia/Taipei
       - NODE_ENV=production
     volumes:
+
       - ${PYTHON_CODE_PATH}:/home/node/github-repos
       - ${SSH_KEYS}:/home/node/.ssh
       - C:/Users/Barry_Kao/n8n:/home/node/.n8n
