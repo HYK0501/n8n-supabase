@@ -1,0 +1,9 @@
+# Use the official n8n image as the base
+FROM n8nio/n8n:latest
+
+# Install Python and Git
+USER root
+RUN apk add --no-cache python3 py3-pip git
+
+# Switch back to the node user for n8n
+USER node

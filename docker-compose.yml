@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   n8n:
-    image: n8nio/n8n:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.n8n
     container_name: n8n
     ports:
       - "5678:5678"
@@ -17,6 +19,8 @@ services:
       - GENERIC_TIMEZONE=Asia/Taipei
       - NODE_ENV=production
     volumes:
+      - ${PYTHON_CODE_PATH}:/home/node/github-repos
+      - ${SSH_KEYS}:/home/node/.ssh
       - C:/Users/Barry_Kao/n8n:/home/node/.n8n
     networks:
       - supabase-network
