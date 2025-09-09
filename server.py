@@ -1,15 +1,18 @@
 # server.py
-from mcp.server.fastmcp import FastMCP
-import requests
 import json
-mcp = FastMCP("Demo MCP Server")  # 初始化伺服器，給它一個名稱
+import requests
+from fastmcp import FastMCP
 
-'''
+mcp = FastMCP("Real Estate MCP")  # Remove host/port from constructor
+#mcp.run()
+mcp.run(transport="streamable-http",
+            host="localhost", port=9000, path="/mcp")
+
 @mcp.tool  # 定義一個工具
 def add(a: int, b: int) -> int:
     """Add two numbers together."""
     return a + b
-
+'''
 @mcp.tool  # 另一個範例工具
 def multiply(a: int, b: int) -> int:
     """Multiply two numbers."""
@@ -42,5 +45,11 @@ def get_ebugcodes_by_key_word(keyword:str) :
 
 '''
 if __name__ == "__main__":
-    mcp.run(transport="stdio")  # 運行伺服器，使用預設 STDIO 傳輸
+    mcp.run(transport="streamable-http")
+
+
+if __name__ == "__main__":
+    # mcp.run()
+    mcp.run(transport="streamable-http",
+            host="localhost", port=9000, path="/mcp")
 '''
