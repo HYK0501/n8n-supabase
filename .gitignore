@@ -5,3 +5,4 @@ test.http
 docker-compose.override.yml
 .idea
 .log
+__pycache__
