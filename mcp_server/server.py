@@ -5,10 +5,10 @@ from fastmcp import FastMCP
 
 mcp = FastMCP("Real Estate MCP")  # Remove host/port from constructor
 #mcp.run()
-mcp.run(transport="streamable-http",
-            host="localhost", port=9000, path="/mcp")
 
-@mcp.tool  # 定義一個工具
+
+
+@mcp.tool("add")  # 定義一個工具
 def add(a: int, b: int) -> int:
     """Add two numbers together."""
     return a + b
@@ -19,7 +19,7 @@ def multiply(a: int, b: int) -> int:
     return a * b
 '''
 
-@mcp.tool()  # 另一個範例工具
+@mcp.tool("ebugcode")  # 另一個範例工具
 def get_ebugcodes_by_key_word(keyword:str) :
     url = "<url>"
     """query ebugs by key word"""
@@ -43,6 +43,9 @@ def get_ebugcodes_by_key_word(keyword:str) :
     #    print("Error:" + response.text)
     return response.text
 
+
+mcp.run(transport="streamable-http",host="0.0.0.0", port=9000, path="/mcp")
+#transport="streamable-http",host="0.0.0.0", port=9000, path="/mcp"
 '''
 if __name__ == "__main__":
     mcp.run(transport="streamable-http")
@@ -51,5 +54,5 @@ if __name__ == "__main__":
 if __name__ == "__main__":
     # mcp.run()
     mcp.run(transport="streamable-http",
-            host="localhost", port=9000, path="/mcp")
+            host="0.0.0.0", port=9000, path="/mcp")
 '''

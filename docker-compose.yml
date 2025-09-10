@@ -1,6 +1,24 @@
 version: "3.8"
 
 services:
+  mcp-server:
+    build:
+      context: ./mcp_server
+      dockerfile: Dockerfile
+    container_name: mcp-server
+    ports:
+      - "9000:9000"
+    environment:
+      - TZ=Asia/Taipei
+    networks:
+      - supabase-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/mcp"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
   n8n:
     build:
       context: .
@@ -18,6 +36,7 @@ services:
       - SUPABASE_SERVICE_KEY=${SERVICE_ROLE_KEY}
       - GENERIC_TIMEZONE=Asia/Taipei
       - NODE_ENV=production
+      - MCP_SERVER_URL=http://mcp-server:9000/mcp
     volumes:
       - ${PYTHON_CODE_PATH}:/home/node/github-repos
       - ${SSH_KEYS}:/home/node/.ssh
@@ -26,6 +45,7 @@ services:
       - supabase-network
     depends_on:
       - kong
+      - mcp-server
     restart: unless-stopped
 
   studio:

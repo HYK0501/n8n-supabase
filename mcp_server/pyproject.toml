@@ -1,0 +1,11 @@
+[project]
+name = "n8n-supabase"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp==2.12.2",
+    "mcp[cli]>=1.13.1",
+    "requests==2.31.0",
+]
