@@ -7,5 +7,7 @@ requires-python = ">=3.11"
 dependencies = [
     "fastmcp==2.12.2",
     "mcp[cli]>=1.13.1",
+    "python-dateutil>=2.9.0.post0",
+    "python-dotenv>=1.1.1",
     "requests==2.31.0",
 ]
