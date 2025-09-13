@@ -5,10 +5,10 @@ FROM ghcr.io/astral-sh/uv:debian
 WORKDIR /app
 
 # Copy project files
-COPY pyproject.toml uv.lock .env ./
+COPY pyproject.toml .env ./
 
 # Install dependencies
-RUN uv sync --frozen
+RUN uv sync
 
 # Copy application code
 COPY server.py ./
