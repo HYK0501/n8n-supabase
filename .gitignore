@@ -6,3 +6,4 @@ docker-compose.override.yml
 .idea
 .log
 __pycache__
+uv.lock

@@ -150,5 +150,5 @@ The Model Context Protocol (MCP) server provides external API integration capabi
 ### dev mcp server
 1. `cd mcp_server`
 2. `uv sync`
-3. `uv run mcp server.py`
+3. `uv run mcp dev server.py`
 4. use `npx @modelcontextprotocol/inspector` run test
