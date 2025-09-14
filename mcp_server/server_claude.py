@@ -1,7 +1,7 @@
 # server.py
 import json
 import requests
-from fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP
 import os
 from dotenv import load_dotenv
 from datetime import datetime
@@ -40,17 +40,3 @@ def get_ebugcodes_by_key_word(keyword:str, page_index: int, months_ago: int):
     response = requests.post(url, headers=headers, json=payload)
 
     return response.text
-
-
-mcp.run(transport="streamable-http",host="0.0.0.0", port=9000, path="/mcp")
-#transport="streamable-http",host="0.0.0.0", port=9000, path="/mcp"
-'''
-if __name__ == "__main__":
-    mcp.run(transport="streamable-http")
-
-
-if __name__ == "__main__":
-    # mcp.run()
-    mcp.run(transport="streamable-http",
-            host="0.0.0.0", port=9000, path="/mcp")
-'''
