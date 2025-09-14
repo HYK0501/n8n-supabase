@@ -6,7 +6,6 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from argparse import ArgumentParser
 
 mcp = FastMCP("server")  # Remove host/port from constructor
 #mcp.run()
@@ -40,7 +39,6 @@ def get_ebugcodes_by_key_word(keyword:str, page_index: int, months_ago: int):
     response = requests.post(url, headers=headers, json=payload)
 
     return response.text
-
 
 mcp.run(transport="streamable-http",host="0.0.0.0", port=9000, path="/mcp")
 #transport="streamable-http",host="0.0.0.0", port=9000, path="/mcp"
