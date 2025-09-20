@@ -152,3 +152,19 @@ The Model Context Protocol (MCP) server provides external API integration capabi
 2. `uv sync`
 3. `uv run mcp dev server.py`
 4. use `npx @modelcontextprotocol/inspector` run test
+
+### make custom node in n8n 
+1. `git clone https://github.com/HYK0501/my_n8n_node`
+2. go to the path to this project (my_n8n_node)
+3. coding your custom node in project (my_n8n_node)
+4. `npm install` in project (my_n8n_node)
+5. `npm run build` in project (my_n8n_node)
+6. make folder custom\node_modules under the volume of n8n container's volume
+7. copy the content under the dist folder that is folder in project (my_n8n_node)
+8. `docker-compose restart n8n`
+
+### dev custom node in n8n 
+1. `rm -rf dist` in project (my_n8n_node)
+2. `npm run build`
+3. copy the content under the dist folder that is folder in project (my_n8n_node)
+4. `docker-compose restart n8n`
